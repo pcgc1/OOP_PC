@@ -7,7 +7,7 @@ public class Ex3_Client {
     private String address;
     private int lawnSize;
     private boolean hasDoge;
-    private double outstandIngress;
+    private double outstandingFees;
 
 
     //constructor method
@@ -16,11 +16,36 @@ public class Ex3_Client {
         address = a;
         lawnSize = s;
         hasDoge = d;
-        outstandIngress = 0;
+        outstandingFees = 0;
 
     }//constructor
 
+
     //instance methods
+    public String toString(){
+        return name + "  " + address + "  " + lawnSize + "  " + hasDoge + "  " + outstandingFees;
+    }
+
+
+    public void mowLawn(){
+
+        double baseFee = 20;
+        if(lawnSize < 300){
+            baseFee += 0.10 * lawnSize;
+        }else{
+            baseFee += 0.15 * lawnSize;
+        }
+
+        if(hasDoge){
+            baseFee += 40;
+        }
+
+        outstandingFees += baseFee;
+
+        System.out.println(name + " our lawn was mowed today for a charge of $" + baseFee);
+        System.out.println("You currently owe : $" + outstandingFees);
+
+    }//mowLawn
 
 }
 //class
