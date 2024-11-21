@@ -47,5 +47,33 @@ public class Ex3_Client {
 
     }//mowLawn
 
+
+    public void proccessPayment(double dollars){
+        outstandingFees -= dollars;
+        System.out.println(name + " you currently owe $" + outstandingFees);
+
+    }//process payment
+
+
+    public String getName() {
+        return name;
+    }//getname
+
+
+    public void delinquent(){
+        if( outstandingFees > 800){
+            double interest = 10 + outstandingFees*0.05;
+            outstandingFees += interest;
+            System.out.println(name + " your payment is overdue. You have been charged interest of $" + interest);
+
+            if(hasDoge){
+                hasDoge = false;
+            }
+
+        }
+
+    }//delinquent
+
+
 }
 //class
