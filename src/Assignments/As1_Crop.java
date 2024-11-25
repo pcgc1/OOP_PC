@@ -2,7 +2,7 @@ package Assignments;
 
 public class As1_Crop {
 
-    private String name;
+    public String name;
     private double yield;
     private String units;
     private double price;
@@ -19,7 +19,7 @@ public class As1_Crop {
 
     }//constructor
 
-    public String toString(){
+    public String printMe(){
         return name + " " + yield + " " + units + " " + price + " " + acres;
     }//toString
 
@@ -27,6 +27,8 @@ public class As1_Crop {
     public void setAcres(int acres) {
         this.acres = acres;
     }//set acres
+
+
 
 
 }//class

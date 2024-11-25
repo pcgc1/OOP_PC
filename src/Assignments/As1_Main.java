@@ -1,5 +1,8 @@
 package Assignments;
 
+import Examples.Ex2_Actor;
+import Examples.Library;
+
 import java.util.ArrayList;
 
 public class As1_Main {
@@ -21,11 +24,58 @@ public class As1_Main {
         allCrops.get(3).setAcres(250);
         allCrops.get(4).setAcres(40);
 
-        //print crops
-        for (int i = 0; i < allCrops.size(); i++) {
-            System.out.println(allCrops.get(i).toString());
-        }
+
+
+
+        //looping menu
+        System.out.println("Welcome to Philip's Farm!");
+
+        while(true){
+            System.out.println("\nWhat do you want to do?\n1.Print farm summary\n2.Search & harvest a crop\n3.Total Revenue\n4.Plant crops\n5.Exit");
+
+            int choice = Library.input.nextInt();
+            Library.input.nextLine();
+
+            if(choice == 1){
+
+                //print crops
+                for (int i = 0; i < allCrops.size(); i++) {
+                    System.out.println(allCrops.get(i).printMe());
+                }
+
+            }else if(choice == 2){
+
+                //search for crop
+                System.out.println("What crop do you want to search for?");
+                String crop = Library.input.nextLine();
+
+                int foundIndex = searchByName(allCrops, crop);
+
+            }else if(choice == 3){
+                System.out.println("Not yet implemented");
+            }else if(choice == 4){
+                System.out.println("Not yet implemented");
+            }else{
+                break;
+            }
+
+        }//while true
+
+
 
     }//run
+
+
+    public static int searchByName (ArrayList<As1_Crop> list, String searchTerm){
+        for (int i = 0; i < list.size(); i++) {
+            if(searchTerm.equalsIgnoreCase( list.get(i).name )){
+                return i;
+
+            }
+        }
+
+
+        return -1;
+    }
 
 }//class
