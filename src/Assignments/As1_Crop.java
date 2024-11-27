@@ -20,7 +20,7 @@ public class As1_Crop {
     }//constructor
 
     public String printMe(){
-        return name + " " + yield + " " + units + " " + price + " " + acres;
+        return name + " yield " + yield + " " + units + " and sell for $" + price + ". You have " + acres + " acres.";
     }//toString
 
 
@@ -29,6 +29,22 @@ public class As1_Crop {
     }//set acres
 
 
+    public double harvest(){
+        double revenue = price * yield * acres;//calculate revenue before setting acres to zero
+        System.out.println("Harvest value : $" + revenue );
+        acres = 0;
+        return revenue;
+    }//harvest
+
+
+    public void plantCrop(int a){
+        acres += a;
+    }//plant existing crop
+
+
+//    public void plantCrop(int a, double y, String u, double p){
+//
+//    }//plant new crop
 
 
 }//class
