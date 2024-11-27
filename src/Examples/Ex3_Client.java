@@ -20,6 +20,15 @@ public class Ex3_Client {
 
     }//constructor
 
+    public Ex3_Client(String n, String a, int s, boolean d, double f){
+        name = n;
+        address = a;
+        lawnSize = s;
+        hasDoge = d;
+        outstandingFees = f;
+
+    }//constructor
+
 
     //instance methods
     public String toString(){
@@ -58,6 +67,23 @@ public class Ex3_Client {
     public String getName() {
         return name;
     }//getname
+
+
+    public String getAddress() {
+        return address;
+    }
+
+    public int getLawnSize() {
+        return lawnSize;
+    }
+
+    public boolean isHasDoge() {
+        return hasDoge;
+    }
+
+    public double getOutstandingFees() {
+        return outstandingFees;
+    }
 
 
     public void delinquent(){
