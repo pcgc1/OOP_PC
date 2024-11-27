@@ -10,6 +10,9 @@ public class As1_Main {
     public static void run(){
         ArrayList<As1_Crop> allCrops = new ArrayList<>();
 
+        //variables
+        double totalRevenue = 0;
+
         //adding crops to arraylist
         allCrops.add( new As1_Crop("Sugar beets", 34.9, "tonnes per acre", 38.77) );
         allCrops.add( new As1_Crop("Canola", 38.1, "bushels per acre", 13.95) );
@@ -51,10 +54,68 @@ public class As1_Main {
 
                 int foundIndex = searchByName(allCrops, crop);
 
+                if(foundIndex == -1){
+                    System.out.println("Crop not found, try again.");
+                }else{
+                    System.out.println(allCrops.get(foundIndex).printMe() );
+
+                    //harvest crop
+                    System.out.println("Would you like to harvest your " + allCrops.get(foundIndex).name + " (yes/no)");
+                    String ans = Library.input.nextLine();
+
+                    if( ans.equalsIgnoreCase("yes") ){
+                       totalRevenue += allCrops.get(foundIndex).harvest();
+                    }else{
+                        System.out.println("No crops harvested");
+                    }
+
+                }//end else
+
             }else if(choice == 3){
-                System.out.println("Not yet implemented");
+
+                //Print total revenue
+                System.out.println("Total revenue from all harvested crops: $" + totalRevenue);
+
             }else if(choice == 4){
-                System.out.println("Not yet implemented");
+
+                //Plant a crop
+                System.out.println("What crop do you want to plant?");
+                String crop = Library.input.nextLine();
+
+                int foundIndex = searchByName(allCrops, crop);
+
+                if(foundIndex == -1){
+
+                    //create new data for new crop
+                    System.out.println("How many acres would you like to plant?");
+                    int a = Library.input.nextInt();
+                    Library.input.nextLine();
+
+                    System.out.println("How much does it yield? (double)");
+                    double y = Library.input.nextDouble();
+                    Library.input.nextLine();
+
+                    System.out.println("What are the units for yield? (String)");
+                    String u = Library.input.nextLine();
+
+                    System.out.println("What is the price per unit? (double)");
+                    double p = Library.input.nextDouble();
+                    Library.input.nextLine();
+
+                    allCrops.add( new As1_Crop(crop, y, u, p) );
+                    allCrops.getLast().setAcres(a);
+
+
+                }else{
+                    //plant existing crop
+                    System.out.println("How many acres would you like to plant?");
+                    int ans = Library.input.nextInt();
+                    Library.input.nextLine();
+
+                    allCrops.get(foundIndex).plantCrop(ans);
+
+                }
+
             }else{
                 break;
             }
@@ -74,8 +135,8 @@ public class As1_Main {
             }
         }
 
-
         return -1;
-    }
+    }//search by name
+
 
 }//class
