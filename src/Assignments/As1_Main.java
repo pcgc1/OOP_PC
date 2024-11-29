@@ -60,7 +60,7 @@ public class As1_Main {
                     System.out.println(allCrops.get(foundIndex).printMe() );
 
                     //harvest crop
-                    System.out.println("Would you like to harvest your " + allCrops.get(foundIndex).name + " (yes/no)");
+                    System.out.println("Would you like to harvest your " + allCrops.get(foundIndex).getName() + " (yes/no)");
                     String ans = Library.input.nextLine();
 
                     if( ans.equalsIgnoreCase("yes") ){
@@ -129,7 +129,7 @@ public class As1_Main {
 
     public static int searchByName (ArrayList<As1_Crop> list, String searchTerm){
         for (int i = 0; i < list.size(); i++) {
-            if(searchTerm.equalsIgnoreCase( list.get(i).name )){
+            if(searchTerm.equalsIgnoreCase( list.get(i).getName() )){
                 return i;
 
             }
