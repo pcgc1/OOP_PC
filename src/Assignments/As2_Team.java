@@ -5,7 +5,7 @@ public class As2_Team {
     private String nickname;
     private String city;
     private String league;
-    private double moneySpent;
+    private double netMoney;
     private int totalWins;
     private int totalLosses;
 
@@ -14,7 +14,7 @@ public class As2_Team {
         nickname = n;
         city = c;
         league = l;
-        moneySpent = m;
+        netMoney = m;
         totalWins = win;
         totalLosses = loss;
 
