@@ -37,4 +37,25 @@ public class As2_Team {
         return realName;
     }//get name
 
+    public int getTotalLosses() {
+        return totalLosses;
+    }//get losses
+
+    public double getNetMoney() {
+        return netMoney;
+    }//get transfer income
+
+    public String getLeague() {
+        return league;
+    }//get league
+
+    public String getNickname() {
+        return nickname;
+    }//get nickname
+
+    public String getCity() {
+        return city;
+    }//get city
+
+
 }//class
