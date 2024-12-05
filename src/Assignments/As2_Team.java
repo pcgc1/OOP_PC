@@ -57,5 +57,13 @@ public class As2_Team {
         return city;
     }//get city
 
+    public void updateWins(){
+        totalWins++;
+    }
+
+    public void updateLosses(){
+        totalLosses++;
+    }
+
 
 }//class

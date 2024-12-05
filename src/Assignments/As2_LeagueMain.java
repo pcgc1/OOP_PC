@@ -59,8 +59,28 @@ public class As2_LeagueMain {
 
             }else if(choice == 5){
                 //update stats
+                System.out.println("What team's stats do you want to update?");
+                String ans = Library.input.nextLine();
+
+                for (int i = 0; i < allTeams.size(); i++) {
+                    if(allTeams.get(i).getRealName().equalsIgnoreCase(ans) ){
+                        System.out.println("Did the team win or lose?");
+                        ans = Library.input.nextLine();
+
+                        if(ans.equalsIgnoreCase("win")){
+                            allTeams.get(i).updateWins();
+                        }else{
+                            allTeams.get(i).updateLosses();
+                        }
+
+                    }
+                    //System.out.println("Team not found");
+                }//for i
+
 
             }else{
+                //exit and save
+                saveFile("data/premierLeagueData.csv", allTeams);
                 break;
             }
 
@@ -94,18 +114,20 @@ public class As2_LeagueMain {
     }//end loadFile
 
 
-    public static void saveFile(String filename, ArrayList <Ex3_Client> tempList ) {
+    public static void saveFile(String filename, ArrayList <As2_Team> tempList ) {
         try {
             PrintWriter file = new PrintWriter(new FileWriter(filename));
 
             for (int i = 0; i < tempList.size(); i++) {
 //the next lines are customized for whatever data you are getting.
                 String toSave ="";
-                toSave = tempList.get(i).getName();  //assumes getter method are used for private variables
-                toSave +="," + tempList.get(i).getAddress();
-                toSave += "," + tempList.get(i).getLawnSize();
-                toSave +="," + tempList.get(i).isHasDoge();
-                toSave +="," + tempList.get(i).getOutstandingFees();
+                toSave = tempList.get(i).getRealName();  //assumes getter method are used for private variables
+                toSave +="," + tempList.get(i).getNickname();
+                toSave += "," + tempList.get(i).getCity();
+                toSave +="," + tempList.get(i).getLeague();
+                toSave +="," + tempList.get(i).getNetMoney();
+                toSave +="," + tempList.get(i).getTotalWins();
+                toSave +="," + tempList.get(i).getTotalLosses();
 
 //The above 6 lines could be replaced by a call to a carefully made toString() function
 
