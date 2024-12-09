@@ -15,11 +15,14 @@ public class As2_LeagueMain {
     public static void run(){
         ArrayList<As2_Team> allTeams = new ArrayList<>();
 
+
         loadFile("data/premierLeagueData.csv", allTeams);
 
+        //add players to player class
+        allTeams.get(5).addPlayer("Cole Palmer", 69, 10);
 
         while(true){
-            System.out.println("\nWhat do you want to do?\n1.Print list of teams\n2.Find highest stats\n3.View division\n4.Sort by wins\n5.Update stats\n6.Save and Exit");
+            System.out.println("\nWhat do you want to do?\n1.Print list of teams\n2.Find highest stats\n3.View division\n4.Sort by wins\n5.Update stats\n6.Print players\n7.Save and Exit");
 
             int choice = Library.input.nextInt();
             Library.input.nextLine();
@@ -79,7 +82,18 @@ public class As2_LeagueMain {
                 }//for i
 
 
-            }else{
+            }else if(choice == 6){
+                //print players
+                System.out.println("What team's players do you want to see?");
+                String ans = Library.input.nextLine();
+
+                for (int i = 0; i < allTeams.size(); i++) {
+                    if(allTeams.get(i).getRealName().equalsIgnoreCase(ans) ){
+                        allTeams.get(i).printMyPlayers();
+                    }
+                }
+
+            } else{
                 //exit and save
                 saveFile("data/premierLeagueData.csv", allTeams);
                 break;

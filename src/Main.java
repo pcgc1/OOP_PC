@@ -9,7 +9,7 @@ public class Main {
 //    Ex1_ArrayLists.run();
 //        Ex2_Main.run();
 //        Ex3_Main.run();
-//        As1_Main.run();
-        As2_LeagueMain.run();
+        As1_Main.run();
+//        As2_LeagueMain.run();
     }
 }

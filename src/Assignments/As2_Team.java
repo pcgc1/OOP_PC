@@ -1,5 +1,7 @@
 package Assignments;
 
+import java.util.ArrayList;
+
 public class As2_Team {
 
     private String realName;
@@ -9,6 +11,7 @@ public class As2_Team {
     private double netMoney;
     private int totalWins;
     private int totalLosses;
+    private ArrayList<As3_Player> allPlayers = new ArrayList<>();
 
 
     public As2_Team(String r, String c, String n, String l, double m, int win, int loss){
@@ -57,6 +60,12 @@ public class As2_Team {
         return city;
     }//get city
 
+    public void printMyPlayers(){
+        for (int i = 0; i < allPlayers.size(); i++) {
+            System.out.println( allPlayers.get(i).toString() );
+        }
+    }//print players
+
     public void updateWins(){
         totalWins++;
     }
@@ -65,5 +74,11 @@ public class As2_Team {
         totalLosses++;
     }
 
+
+    //Assignment 3 stuff
+
+    public void addPlayer(String n, int p, int g){
+        allPlayers.add( new As3_Player(n, p, g) );
+    }//add player
 
 }//class
