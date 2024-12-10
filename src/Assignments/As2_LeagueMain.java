@@ -15,11 +15,14 @@ public class As2_LeagueMain {
     public static void run(){
         ArrayList<As2_Team> allTeams = new ArrayList<>();
 
+
         loadFile("data/premierLeagueData.csv", allTeams);
 
+        //add players to player class
+        allTeams.get(5).addPlayer("Cole Palmer", 69, 10);
 
         while(true){
-            System.out.println("\nWhat do you want to do?\n1.Print list of teams\n2.Find highest stats\n3.View division\n4.Sort by wins\n5.Update stats\n6.Exit");
+            System.out.println("\nWhat do you want to do?\n1.Print list of teams\n2.Find highest stats\n3.View division\n4.Sort by wins\n5.Update stats\n6.Print players\n7.Save and Exit");
 
             int choice = Library.input.nextInt();
             Library.input.nextLine();
@@ -29,6 +32,7 @@ public class As2_LeagueMain {
                 for(int i = 0; i < allTeams.size();i++){
                     System.out.println(allTeams.get(i).toString());
                 }
+
             }else if(choice == 2){
                 //find highest
                 int foundIndex = findHighestWins(allTeams);
@@ -53,7 +57,7 @@ public class As2_LeagueMain {
                 System.out.println("Sort by wins\n");
                 selectionSortIntArrayList(allTeams);
 
-                for(int i = allTeams.size()-1 ; i >= 0 ;i--){
+                for(int i = 0 ; i < allTeams.size(); i++){
                     System.out.println(allTeams.get(i).getRealName() + " has " + allTeams.get(i).getTotalWins() + " wins");
                 }
 
@@ -78,7 +82,18 @@ public class As2_LeagueMain {
                 }//for i
 
 
-            }else{
+            }else if(choice == 6){
+                //print players
+                System.out.println("What team's players do you want to see?");
+                String ans = Library.input.nextLine();
+
+                for (int i = 0; i < allTeams.size(); i++) {
+                    if(allTeams.get(i).getRealName().equalsIgnoreCase(ans) ){
+                        allTeams.get(i).printMyPlayers();
+                    }
+                }
+
+            } else{
                 //exit and save
                 saveFile("data/premierLeagueData.csv", allTeams);
                 break;
@@ -193,16 +208,16 @@ public class As2_LeagueMain {
 
     public static void selectionSortIntArrayList(ArrayList<As2_Team> list){
         for(int i=0; i<list.size()-1; i++){
-            int lowestIndex = i;
+            int highestIndex = i;
             for(int j=i+1; j<list.size(); j++){
-                if(list.get(j).getTotalWins() < list.get(lowestIndex).getTotalWins() ){
-                    lowestIndex = j;
+                if(list.get(j).getTotalWins() > list.get(highestIndex).getTotalWins() ){
+                    highestIndex = j;
                 }
             }
 
             As2_Team tempTeam = list.get(i);
-            list.set(i, list.get(lowestIndex));
-            list.set(lowestIndex, tempTeam);
+            list.set(i, list.get(highestIndex));
+            list.set(highestIndex, tempTeam);
 
         }//end for i
 
