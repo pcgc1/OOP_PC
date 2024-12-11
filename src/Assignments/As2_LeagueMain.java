@@ -19,7 +19,43 @@ public class As2_LeagueMain {
         loadFile("data/premierLeagueData.csv", allTeams);
 
         //add players to player class
-        allTeams.get(5).addPlayer("Cole Palmer", 69, 10);
+        //Arsenal
+        allTeams.get(0).addPlayer("Bukayo Saka", 0, 16);
+        allTeams.get(0).addPlayer("Kai Havertz", 1, 13);
+        allTeams.get(0).addPlayer("Leandro Trossard", 2, 12);
+
+        //Man City
+        allTeams.get(1).addPlayer("Erling Haaland", 3, 27);
+        allTeams.get(1).addPlayer("Phil Foden", 4, 19);
+
+        //Liverpool
+        allTeams.get(2).addPlayer("Mohamed Salah", 5, 18);
+        allTeams.get(2).addPlayer("Darwin Nunez", 6, 11);
+
+        //Aston Villa
+        allTeams.get(3).addPlayer("Ollie Watkins", 7, 19);
+        allTeams.get(3).addPlayer("Leon Bailey", 8, 10);
+
+        //Spurs
+        allTeams.get(4).addPlayer("Son Heung-Min", 9, 17);
+        allTeams.get(4).addPlayer("Richarlison", 10, 11);
+
+        //Chelsea
+        allTeams.get(5).addPlayer("Cole Palmer", 11, 22);
+        allTeams.get(5).addPlayer("Nicolas Jackson", 12, 14);
+        allTeams.get(5).addPlayer("Noni Madueke", 13, 5);
+        allTeams.get(5).addPlayer("Mykhailo Mudryk", 14, 5);
+        allTeams.get(5).addPlayer("Enzo Fernandez", 15, 3);
+
+        //Man United
+        allTeams.get(6).addPlayer("Bruno Fernandes", 16, 10);
+        allTeams.get(6).addPlayer("Rasmus Hojlund", 17, 10);
+
+        //Newcastle
+        allTeams.get(7).addPlayer("Alexander Isak", 18, 21);
+        allTeams.get(7).addPlayer("Anthony Gordon", 19, 11);
+
+
 
         while(true){
             System.out.println("\nWhat do you want to do?\n1.Print list of teams\n2.Find highest stats\n3.View division\n4.Sort by wins\n5.Update stats\n6.Print players\n7.Save and Exit");
