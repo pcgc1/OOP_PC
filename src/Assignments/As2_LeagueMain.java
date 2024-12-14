@@ -58,7 +58,7 @@ public class As2_LeagueMain {
 
 
         while(true){
-            System.out.println("\nWhat do you want to do?\n1.Print list of teams\n2.Find highest stats\n3.View division\n4.Sort by wins\n5.Update stats\n6.Print players\n7.Save and Exit");
+            System.out.println("\nWhat do you want to do?\n1.Print list of teams\n2.Find highest stats\n3.View division\n4.Sort by wins\n5.Update stats\n6.Print players\n7.Total player stats\n8.Update player stats\n9.Save and Exit");
 
             int choice = Library.input.nextInt();
             Library.input.nextLine();
@@ -127,6 +127,25 @@ public class As2_LeagueMain {
                     if(allTeams.get(i).getRealName().equalsIgnoreCase(ans) ){
                         allTeams.get(i).printMyPlayers();
                     }
+                }
+
+            }else if(choice == 7) {
+                //Total player stats
+                for (int i = 0; i < allTeams.size(); i++) {
+                    System.out.println( allTeams.get(i).getRealName() + ": " + allTeams.get(i).totalStats() + " goals scored");
+                }
+
+            }else if(choice == 8) {
+                //Update player stats
+                System.out.println("What player's stats do you want to update?");
+                String ans = Library.input.nextLine();
+
+                System.out.println("How many goals did they score?");
+                int goals = Library.input.nextInt();
+                Library.input.nextLine();
+
+                for (int i = 0; i < allTeams.size(); i++) {
+                    allTeams.get(i).updateStat(ans, goals);
                 }
 
             } else{

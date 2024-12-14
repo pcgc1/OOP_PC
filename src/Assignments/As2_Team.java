@@ -81,4 +81,21 @@ public class As2_Team {
         allPlayers.add( new As3_Player(n, p, g) );
     }//add player
 
+    public int totalStats(){
+        int total = 0;
+            for (int i = 0; i < allPlayers.size(); i++) {
+                 total += allPlayers.get(i).getGoalScored();
+            }
+        return total;
+    }//total player stats
+
+
+    public void updateStat(String ans, int g){
+        for (int i = 0; i < allPlayers.size(); i++) {
+            if( ans.equalsIgnoreCase( allPlayers.get(i).getName() ) ){
+                allPlayers.get(i).addGoals(g);
+            }
+        }//end for i
+    }//update player stats
+
 }//class

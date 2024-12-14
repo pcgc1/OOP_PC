@@ -15,14 +15,20 @@ public class As3_Player {
     }//constructor
 
     public String toString(){
-        return name + " has scored " + goalScored + " goals. " + playerID;
+        return name + " has scored " + goalScored + " goals. " + "Player ID:" + playerID;
     }//to string
 
+    public int getGoalScored() {
+        return goalScored;
+    }
 
+    public String getName() {
+        return name;
+    }
 
-//    public updateStat(){
-//
-//    }//update stats
+    public void addGoals(int g){
+        goalScored += g;
+    }//update stats
 
 
 
